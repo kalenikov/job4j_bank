@@ -26,10 +26,4 @@ public class CreditHistory {
     @JsonIgnore
     private Passport passport;
 
-    public CreditHistory(List<Credit> credits, Passport passport) {
-        this.credits = credits;
-        this.passport = passport;
-    }
-
-    /* Constructors, getters and setters */
 }

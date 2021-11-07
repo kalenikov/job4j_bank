@@ -3,9 +3,7 @@ package ru.job4j.bank.service;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import ru.job4j.bank.model.Passport;
-import ru.job4j.bank.repository.PassportRepository;
 
-import javax.annotation.PostConstruct;
 import java.util.Optional;
 
 @Service
@@ -18,12 +16,14 @@ public class PassportServiceImpl implements PassportService {
     }
 
     @Override
-    public Optional<Passport> findBySeriesAndNumber(int seria, int number) {
+    public Optional<Passport> findBySeriesAndNumber(int series, int number) {
         String url = "http://localhost:8080/checkValid";
         String result = restTemplate.postForObject(
-                url, new Passport(seria, number), String.class
+                url, new Passport(series, number), String.class
         );
-        return "true".equals(result) ? Optional.of(new Passport(seria, number)) : Optional.empty();
+        return "true".equals(result)
+                ? Optional.of(new Passport(series, number))
+                : Optional.empty();
     }
 
 }

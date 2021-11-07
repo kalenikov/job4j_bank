@@ -11,25 +11,27 @@ import java.util.Optional;
 @Service
 public class BankServiceImpl implements BankService {
 
-    private PassportService passportService;
-    private CreditHistoryService creditHistoryService;
+    private final PassportService passports;
+    private final CreditHistoryService credits;
 
     public BankServiceImpl(PassportService passportService,
                            CreditHistoryService creditHistoryService) {
-        this.passportService = passportService;
-        this.creditHistoryService = creditHistoryService;
+        this.passports = passportService;
+        this.credits = creditHistoryService;
     }
 
     @Override
     public Optional<Credit> getCredit(Passport passport, Credit creditData) {
-        Optional<Passport> passportOptional = passportService.findBySeriesAndNumber(
+        Optional<Passport> passportOptional = passports.findBySeriesAndNumber(
                 passport.getSeries(), passport.getNumber()
         );
         if (passportOptional.isEmpty()) {
             return Optional.empty();
         }
-        Optional<CreditHistory> creditHistoryOptional = creditHistoryService.getHistory(passportOptional.get());
-        return checkCreditHistory(creditHistoryOptional) ? Optional.of(creditData) : Optional.empty();
+        Optional<CreditHistory> creditHistoryOptional = credits.getHistory(passportOptional.get());
+        return checkCreditHistory(creditHistoryOptional)
+                ? Optional.of(creditData)
+                : Optional.empty();
     }
 
     private boolean checkCreditHistory(Optional<CreditHistory> creditHistoryOptional) {

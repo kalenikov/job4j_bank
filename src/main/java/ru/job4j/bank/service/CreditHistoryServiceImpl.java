@@ -27,7 +27,7 @@ public class CreditHistoryServiceImpl implements CreditHistoryService {
     public Optional<CreditHistory> getHistory(Passport passport) {
         String url = "http://localhost:8081/get-history";
         ResponseEntity<CreditHistory> response = restTemplate.getForEntity(
-                String.format("%s?seria=%d&number=%d", url, passport.getSeries(), passport.getNumber()),
+                String.format("%s?series=%d&number=%d", url, passport.getSeries(), passport.getNumber()),
                 CreditHistory.class
         );
         Optional<CreditHistory> result = Optional.empty();
