@@ -25,10 +25,10 @@ public class CreditHistoryController {
 
     @GetMapping("/get-history")
     public CreditHistory findHistoryByPassport(
-            @RequestParam int seria,
+            @RequestParam int series,
             @RequestParam int number) {
         Passport passport = passportRepository.findBySeriesAndNumber(
-                seria, number
+                series, number
         ).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid passport data"));
         return creditHistoryService.findCreditHistoryByPassport(passport);
     }

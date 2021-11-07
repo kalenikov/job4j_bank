@@ -26,8 +26,8 @@ public class PassportServiceImpl implements PassportService {
     }
 
     @Override
-    public boolean checkValid(int seria, int number) {
-        Optional<Passport> passportOptional = passportRepository.findBySeriesAndNumber(seria, number);
+    public boolean checkValid(int series, int number) {
+        Optional<Passport> passportOptional = passportRepository.findBySeriesAndNumber(series, number);
         if (passportOptional.isEmpty()) {
             return false;
         }
