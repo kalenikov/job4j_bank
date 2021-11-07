@@ -14,8 +14,8 @@ import ru.job4j.credit.service.CreditHistoryService;
 @RestController
 public class CreditHistoryController {
 
-    private CreditHistoryService creditHistoryService;
-    private PassportRepository passportRepository;
+    private final CreditHistoryService creditHistoryService;
+    private final PassportRepository passportRepository;
 
     public CreditHistoryController(CreditHistoryService creditHistoryService,
                                    PassportRepository passportRepository) {

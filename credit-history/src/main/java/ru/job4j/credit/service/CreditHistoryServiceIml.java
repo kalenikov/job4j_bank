@@ -16,9 +16,9 @@ import java.util.List;
 @Service
 public class CreditHistoryServiceIml implements CreditHistoryService {
 
-    private PassportRepository passportRepository;
-    private CreditRepository creditRepository;
-    private CreditHistoryRepository creditHistoryRepository;
+    private final PassportRepository passportRepository;
+    private final CreditRepository creditRepository;
+    private final CreditHistoryRepository creditHistoryRepository;
 
     public CreditHistoryServiceIml(PassportRepository passportRepository,
                                    CreditRepository creditRepository,
