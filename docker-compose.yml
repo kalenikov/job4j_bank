@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  passport-service:
+    build: ./passport-service
+    ports:
+      - "8080:8080"
+  credit-service:
+    build: ./credit-history
+    ports:
+      - "8081:8081"
