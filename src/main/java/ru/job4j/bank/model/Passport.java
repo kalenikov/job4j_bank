@@ -10,22 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class Passport {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
     private int series;
     private int number;
-    private boolean isActive;
-
-    public Passport(int series, int number) {
-        this.series = series;
-        this.number = number;
-    }
 }
