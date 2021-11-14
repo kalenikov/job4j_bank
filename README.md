@@ -3,7 +3,7 @@
 [![Build Status](https://app.travis-ci.com/kalenikov/job4j_bank.svg?branch=main)](https://app.travis-ci.com/kalenikov/job4j_bank)
 
 Description :
-- This project represent bank rest-service 
+- This project represent microservices bank system 
 
 Used technologies:
 - Spring (Boot, Security, Data, Test);
